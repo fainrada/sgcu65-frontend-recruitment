@@ -1,3 +1,140 @@
-h1 {
-  font-family: "Prompt", sans-serif;
+/*base code for both pages*/
+:root {
+  --primary-400: #EE7FAA;
+  --primary-500: #DE5C8E;
+  --primary-600: #C9648B;
+  --white: #FFFFFF;
+  --black: #000000;
+  --gray: #B4B4B4;
 }
+
+body{
+  margin: 0;
+}
+
+h1,p {
+  font-family: "Prompt", sans-serif;
+  margin: 0;
+}
+
+#navbar {
+  background-color: var(--white);
+  padding: 16px 0;
+}
+
+#logo {
+  margin-left: 160px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#logo p{
+  margin-left: 24px;
+  color: var(--primary-500);
+  font-size: 24px;
+}
+
+#logo img{
+  width: 28px;
+  height: 48px;
+}
+
+
+#bg-img {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -10;
+}
+
+/*--------------------------*/
+@media ( max-width:1000px){
+  #content {  
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #kite-img {
+    display: none;
+    
+  }
+  #logo {
+    margin-left: 28px;
+  }
+}
+
+#content {
+  margin: 72px 160px;
+}
+
+#kite-img {
+  width: 40%;
+  height: 40%;
+  float: left;
+}
+
+input[type=text],input[type=submit] {
+  font-family: "Prompt", sans-serif;
+  width: 260px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  margin-top: 24px;
+}
+
+input[type=text] {
+  display: inline-block;
+  border: 1px solid var(--gray);
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  background-color: var(--primary-500);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: var(--primary-600);
+}
+
+#form {
+  padding: 40px 40px 40px 40px;
+  display: flex;
+  justify-content: space-between;
+  width: fit-content; 
+  flex-direction: column;
+  border: 1px solid var(--primary-500);
+  border-radius: 8px;
+  background-color: var(--white);
+}
+
+#form h1 {
+  font-size: 3em;
+  font-weight: 500;
+}
+
+#textfield-list {
+  margin-top: 8px;
+  display: flex;
+  width: fit-content; 
+  flex-direction: column;
+}
+
+#social-media{
+  margin-top: 24px;
+}
+
+#right-container {
+  align-items: flex-end;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
