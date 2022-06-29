@@ -1,3 +1,158 @@
-h1 {
+/*base code for both pages*/
+:root {
+  --primary-400: #EE7FAA;
+  --primary-500: #DE5C8E;
+  --primary-600: #C9648B;
+  --white: #FFFFFF;
+  --black: #000000;
+  --gray: #B4B4B4;
+}
+
+body{
+  margin: 0;
+}
+
+h1,p,h2,h3 {
   font-family: "Prompt", sans-serif;
+  margin: 0;
+}
+
+#navbar {
+  background-color: var(--white);
+  padding: 16px 0;
+}
+
+#logo {
+  margin-left: 160px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#logo p{
+  margin-left: 24px;
+  color: var(--primary-500);
+  font-size: 24px;
+}
+
+#logo img{
+  width: 28px;
+  height: 48px;
+}
+
+
+#bg-img {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -10;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*--------------------------*/
+
+
+#title {
+  font-size: 3em;
+  font-weight: 500;
+}
+
+#content {
+  margin: 40px 160px;
+}
+
+#top-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#name-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 249px);
+  justify-content: space-between;
+  /*
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  */
+  margin-top: 28px;
+}
+
+.card{
+  box-sizing: border-box;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: var(--white);
+  border: 1px solid var(--primary-500);
+  width: 249px;
+  margin-bottom: 32px;
+  /*margin: 1em 1em 1em 1em;*/
+}
+
+.username{
+  margin: auto;
+  font-weight: 500;
+  color: var(--primary-500)
+}   
+
+.name{
+  margin: auto;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+input[type=text],input[type=submit] {
+  font-family: "Prompt", sans-serif;
+  width: 260px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  margin-top: 24px;
+  height: fit-content; /*dont forget to add this to main page*/
+}
+
+input[type=text] {
+  display: inline-block;
+  border: 1px solid var(--gray);
+  box-sizing: border-box;
+  outline: none;
+}
+
+input[type=text]:focus{
+  border: 2px solid var(--primary-600);
+}
+
+@media ( max-width:1000px){
+  #top-container {  
+    display: flex;
+    flex-direction: column;
+  }
+  #logo {
+    margin-left: 28px;
+  }
+  #content {
+    margin: 5vh 5vw;
+  }
+  #title {
+    font-size: 36px;
+  }
+}
+
+@media ( max-width:550px){
+  #name-list,.card,input[type=text] {
+    width: 100%;
+  }
+  .card {
+    margin-bottom: 20px;
+  }
+  #name-list{
+    display: flex;
+    flex-direction: column;
+  }
 }
