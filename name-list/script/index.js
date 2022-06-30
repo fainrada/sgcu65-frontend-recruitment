@@ -1,46 +1,34 @@
 // Script here
 
-var fetchData = [ {
-  "name": "อายากะ",
-  "surname": "คามิซาโตะ",
-  "username": "ShirasagiHimegimi"
-},
-{
-  "name": "ไรเดน",
-  "surname": "โชกุน",
-  "username": "CantCook"
-},
-{
-  "name": "โคนัน",
-  "surname": "เอโดงาวะ",
-  "username": "SmallBodyBigBrain"
-},
-{
-  "name": "อายาเมะ",
-  "surname": "นาคิริ",
-  "username": "CuteOni"
-},
-{
-  "name": "โคโคมิ",
-  "surname": "ซังโกโนมิยะ",
-  "username": "SoleOfTheDeep"
-},
-{
-  "name": "มิกุ",
-  "surname": "ฮัตสึเนะ",
-  "username": "Thankyou39"
-} ]
-
+var fetchedData = {};
+async function fetchData() {
+  console.log("start fetching data")
+  const response = await fetch(
+    'http://isd-test.cucheck.in/users',
+		{
+      method: 'GET'
+		}
+  );
+  if (!response.ok) {
+     throw new Error("fetch data - error status: " + response.status);
+  }
+  console.log("fetch data - success");
+  fetchedData = await response.json();
+  console.log("fetch data - complete");
+  CreateData(fetchedData);
+}
+fetchData();
+  
 var serchResultText = document.getElementById("search-result-text");
 var serchResult = document.getElementById("search-result");
 
 function CreateData(data){ 
+  console.log("start creating data");
   let nameContainer = document.getElementById("name-list");
 
   //reset component
   nameContainer.innerHTML = "";
   serchResult.style.visibility = "hidden";
-
   
   for(let i=0;i<data.length;i++){
     /*
@@ -63,19 +51,12 @@ function CreateData(data){
     nameContainer.appendChild(card);
   }
 }
-CreateData(fetchData);
-
-function reloadData(){
-  //call fetchData()
-  console.log("reload");
-  CreateData(fetchData);
-}
 
 function Search(keyword){
   let SearchData = [];
-  for(let i=0;i<fetchData.length;i++){
-    if(fetchData[i].username === keyword || fetchData[i].name === keyword || fetchData[i].surname === keyword){
-      SearchData.push(fetchData[i]);
+  for(let i=0;i<fetchedData.length;i++){
+    if(fetchedData[i].username === keyword || fetchedData[i].name === keyword || fetchedData[i].surname === keyword){
+      SearchData.push(fetchedData[i]);
     }
   }
   CreateData(SearchData);
@@ -83,6 +64,7 @@ function Search(keyword){
   serchResult.style.visibility = "visible";
 }
 
+//press enter to search
 document.addEventListener("keypress", function(event) {
   if (event.keyCode == 13) {
     Search(document.getElementById("search").value);
