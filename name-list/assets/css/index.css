@@ -75,7 +75,7 @@ a {
   display: grid;
   grid-template-columns: repeat(auto-fill, 249px);
   justify-content: space-between;
-  margin-top: 28px;
+  margin-top: 12px;
 }
 
 .card{
@@ -123,11 +123,6 @@ input[type=text]:focus{
   border: 2px solid var(--primary-600);
 }
 
-#search-result-text {
-  font-family: "Prompt", sans-serif;
-  border: none;
-}
-
 #search-result{
   visibility:hidden;
   display: flex;
@@ -136,8 +131,11 @@ input[type=text]:focus{
   align-items: center;
   background-color: #eaeaea;
   width: fit-content;
+  height: fit-content;
   border-radius: 20px;
   padding: 4px 12px;
+  border: none;
+  margin-top: 8px;
 }
 
 .icon{
